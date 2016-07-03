@@ -1,4 +1,4 @@
-VALID_CHOICES = ['rock', 'paper', 'scissors']
+VALID_CHOICES = %w(rock papers scissors)
 
 def prompt(msg)
   Kernel.puts("=> #{msg}")
@@ -8,7 +8,7 @@ def display_results(player, computer)
   if (player == 'rock' && computer == 'scissors') ||
      (player == 'scissors' && computer == 'paper') ||
      (player == 'paper' && computer == 'rock')
- 
+
     prompt("Congratulations, you won!")
 
   elsif (player == 'rock' && computer == 'paper') ||
@@ -16,7 +16,7 @@ def display_results(player, computer)
         (player == 'paper' && computer == 'scissors')
 
     prompt("Today was not your day. The computer wins!")
-  else 
+  else
     prompt("It was a tie!")
   end
 end
@@ -30,7 +30,8 @@ loop do
     if VALID_CHOICES.include?(user_choice)
       break
     else
-      prompt("'#{user_choice}' is not a valid choice. Please choose between: rock, paper, scissors")
+      prompt("'#{user_choice}' is not a valid choice.")
+      prompt("Please choose between: rock, paper, scissors")
     end
   end
 
@@ -46,9 +47,3 @@ loop do
 end
 
 prompt("Thank you for playing. Good bye!")
-
-
-
-
-
-
